@@ -124,11 +124,16 @@
         .dark-mode-checkbox:checked + .dark-mode-slider:before {
             transform: translateX(20px);
         }
+
+        /* Make specific text white */
+        .white-text {
+            color: #fff;
+        }
     </style>
 </head>
-<body class="light-theme">
+<body class="dark-theme">
     <header>
-        <h1>Welcome to the Minecraft Fan Page</h1>
+        <h1>Welcome to the <span class="white-text">Minecraft Fan Page</span></h1>
     </header>
     <nav>
         <a href="#">Home</a>
@@ -152,7 +157,7 @@
         </div>
     </main>
     <footer>
-        &copy; 2023 Minecraft Fan Page
+        <span class="white-text">&copy; 2023 Minecraft Fan Page</span>
     </footer>
     <script>
         // Dark mode toggle functionality
