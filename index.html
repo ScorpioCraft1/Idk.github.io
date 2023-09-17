@@ -7,6 +7,7 @@
             font-family: "Minecraft", sans-serif;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Light Theme */
@@ -83,6 +84,46 @@
             text-align: center;
             font-size: 18px;
         }
+
+        /* Dark Mode Switch Styles */
+        .dark-mode-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dark-mode-label {
+            margin-right: 10px;
+        }
+
+        .dark-mode-checkbox {
+            display: none;
+        }
+
+        .dark-mode-slider {
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .dark-mode-slider:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .dark-mode-checkbox:checked + .dark-mode-slider:before {
+            transform: translateX(20px);
+        }
     </style>
 </head>
 <body class="light-theme">
@@ -101,9 +142,32 @@
         
         <!-- Search Bar -->
         <input type="text" class="search-bar" placeholder="Search...">
+
+        <!-- Dark Mode Switch -->
+        <div class="dark-mode-switch">
+            <span class="dark-mode-label">Dark Mode:</span>
+            <label class="dark-mode-slider">
+                <input type="checkbox" class="dark-mode-checkbox">
+            </label>
+        </div>
     </main>
     <footer>
         &copy; 2023 Minecraft Fan Page
     </footer>
+    <script>
+        // Dark mode toggle functionality
+        const darkModeCheckbox = document.querySelector(".dark-mode-checkbox");
+        const body = document.body;
+
+        darkModeCheckbox.addEventListener("change", () => {
+            if (darkModeCheckbox.checked) {
+                body.classList.remove("light-theme");
+                body.classList.add("dark-theme");
+            } else {
+                body.classList.remove("dark-theme");
+                body.classList.add("light-theme");
+            }
+        });
+    </script>
 </body>
 </html>
